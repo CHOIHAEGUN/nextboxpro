@@ -1,0 +1,122 @@
+.bundleDisplay_brand_link {
+  @include LinkTextArrow_18;
+}
+.bundleDisplay_promotion_link {
+  @include LinkTextArrow_16;
+}
+
+.bundleDisplay_section_headline {
+  @include DetailHeadline;
+}
+.bundleDisplay_contentRow {
+  margin: 27px 0 0;
+  @include media(pc) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    margin: 45px 0 0;
+  }
+}
+
+.bundleDisplay_section_title {
+  margin-bottom: 17px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: $fontBold;
+  @include media(pc) {
+    margin-bottom: 25px;
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+.bundleDisplay_section {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bundleDisplay_section_desc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  display: none;
+  @include media(pc) {
+    display: block;
+  }
+  &_title {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: $fontBold;
+  }
+  &_detail {
+    margin-top: 13px;
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+.bundleDisplay_section_img {
+  position: relative;
+  @include media(pc) {
+    flex: 2;
+    flex-shrink: 0;
+  }
+  @include media(pc-wide) {
+    width: 1020px;
+    flex: none;
+  }
+  source,
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+}
+
+.bundleDisplay_content {
+  @include contentLeftPc;
+  .bundleDisplay_section_info {
+    display: block;
+    @include media(pc) {
+      display: none;
+    }
+    & + .hr {
+      @include media(pc) {
+        display: none;
+      }
+    }
+  }
+  .productItem_list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: 40px -8px 0;
+    @include media(pc) {
+      margin: 40px -15px 0;
+    }
+    &_item {
+      margin: 0 0 40px;
+      width: calc(100% / 2);
+      @include media(pc) {
+        padding: 0 15px;
+        width: calc(100% / 3);
+      }
+    }
+  }
+  .more_w100 {
+    margin-top: 0;
+  }
+}
+.bundleDisplay_registerInfoWrap {
+  @include media(pc) {
+    margin-top: 60px;
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+}

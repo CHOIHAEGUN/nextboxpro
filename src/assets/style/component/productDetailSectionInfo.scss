@@ -1,0 +1,117 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+/* productDetail */
+
+.productDetail_section_info_inner {
+  .productDetail_infoSub {
+    display: flex;
+    padding: 24px 0 0;
+    font-size: 16px;
+    line-height: 21px;
+    @include media(pc) {
+      padding-top: 26px;
+    }
+    .productDetail_buttonArea {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      button {
+        & + button {
+          margin-left: 8px;
+        }
+      }
+    }
+    .productDetail_like_button {
+      @include likeButton($width: 24px, $height: 24px);
+    }
+    .productDetail_share_button {
+      &::before {
+        content: '';
+        display: block;
+        background: url('#{$imageUrl}/share_24@2x.png') no-repeat 0 0;
+        background-size: 100% auto;
+        height: 24px;
+        width: 24px;
+        @include transition;
+      }
+    }
+  }
+
+  .productDetail_title {
+    margin: 8px 0 0;
+    color: $color-black;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: $fontBold;
+    @include ellipsis-multiline(2);
+    @include media(pc) {
+    }
+  }
+  .productDetail_request_wrap {
+    padding: 19px 0 27px;
+    border-bottom: 1px solid $color-paleGray;
+    display: none;
+    .productDetail_request {
+      color: $color-pink;
+      font-weight: $fontBold;
+    }
+    &.active {
+      display: flex;
+    }
+  }
+  .productDetail_price_wrap {
+    display: none;
+    align-items: center;
+    padding: 14px 0 25px;
+    border-bottom: 1px solid $color-paleGray;
+    &.active {
+      display: flex;
+    }
+  }
+  .productDetail_price {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: $fontBold;
+    white-space: nowrap;
+    @include media(pc-wide) {
+      margin: 0;
+    }
+
+    .unit {
+      font-size: 18px;
+      margin-left: 4px;
+      font-weight: $fontRegular;
+    }
+  }
+
+  .productDetail_price_origin {
+    margin-left: 16px;
+    line-height: 22px;
+    font-weight: $fontRegular;
+    color: #666;
+    white-space: nowrap;
+    @include media(pc) {
+      // margin: 0 0 0 16px;
+    }
+    &_num {
+      font-weight: $fontBold;
+      font-size: 20px;
+      @include del;
+    }
+    .unit {
+      margin-left: 5px;
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
+  .productDetail_infoDelivery {
+    margin: 8px 0 44px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: $fontBold;
+    @include media(pc) {
+      margin-bottom: 28px;
+    }
+  }
+}

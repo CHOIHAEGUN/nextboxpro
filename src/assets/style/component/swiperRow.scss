@@ -1,0 +1,77 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /*footer*/
+/* swiper */
+// MAIN 2줄 상품리스트
+.swiper_productRow {
+  position: relative;
+  .swiper-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    // overflow: hidden;
+    width: auto !important;
+    // margin: 0 -8px;
+    flex-direction: column;
+    @include media(pc) {
+      flex-direction: column;
+      margin: 0 auto;
+    }
+  }
+  .swiper {
+    height: 790px;
+    @include media(tablet) {
+      height: 1200px;
+    }
+    @include media(pc) {
+      height: 955px;
+      padding-bottom: 88px;
+      box-sizing: content-box;
+    }
+    &.swiper_only {
+      height: auto;
+      @include media(pc) {
+        height: auto;
+        padding-bottom: 0;
+      }
+      .swiper-wrapper {
+        flex-direction: row;
+        margin-top: -16px;
+        margin-right: -16px;
+        overflow: hidden;
+        @include media(pc) {
+          margin-top: -30px;
+          margin-right: -30px;
+        }
+      }
+      .swiper-slide {
+        height: auto;
+        margin-top: 16px;
+        @include media(pc) {
+          margin-top: 30px;
+        }
+      }
+      .section_moreArea {
+        display: none;
+      }
+    }
+  }
+  .swiper-slide {
+    height: calc(((100% - 30px) / 2));
+    margin: 0;
+    // padding: 0 8px;
+    @include media(pc) {
+      height: calc(((100% - 30px) / 2));
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .section_moreArea {
+    display: none;
+    @include media(pc) {
+      display: inline-flex;
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+    }
+  }
+}

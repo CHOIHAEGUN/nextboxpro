@@ -1,0 +1,125 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* button */
+.button {
+  height: 50px;
+  padding: 0 24px;
+  min-width: 98px;
+  border: 1px solid $color-paleGray;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: $fontMedium;
+  background-color: #fff;
+  border-radius: 4px;
+  letter-spacing: -0.5px;
+  @include transition;
+  white-space: nowrap;
+  &:hover {
+    background-color: #ddd;
+  }
+  &:disabled {
+    cursor: not-allowed !important;
+    background-color: #e4e4e4 !important;
+    color: #b2b2b2 !important;
+    border-color: #e4e4e4 !important;
+  }
+  &.black {
+    color: #fff;
+    border-color: $color-black;
+    background-color: $color-black;
+  }
+  &.orange {
+    color: #fff;
+    border-color: $color-orange;
+    background-color: $color-orange;
+  }
+  &.orange_line {
+    color: $color-orange;
+    border-color: $color-orange;
+    background-color: #fff;
+  }
+  &.gray {
+    color: #fff;
+    border-color: #ababab;
+    background-color: #ababab;
+  }
+  &.medium {
+    height: 46px;
+    min-width: 93px;
+    padding: 0 5px;
+  }
+  &.small {
+    height: 35px;
+    padding: 0 14px;
+    min-width: 0;
+    font-size: 16px;
+    font-weight: $fontRegular;
+  }
+  &.primary {
+    color: #fff;
+    border-color: $color-orange;
+    background-color: $color-orange;
+  }
+  &.date {
+    &:hover,
+    &.active {
+      border-color: $color-orange;
+      background-color: transparent;
+    }
+  }
+  &.bold {
+    font-weight: $fontBold;
+  }
+  &.more_w100 {
+    margin-top: 24px;
+    width: 100%;
+    font-weight: $fontRegular;
+    color: $color-gray2;
+    &::before {
+      @include arrow;
+      margin: -7px 12px 0 0;
+      border-color: $color-gray2;
+      transform: rotate(135deg);
+    }
+  }
+
+  &.addButton {
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px 30px;
+    height: auto;
+    min-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: $fontRegular;
+    color: $color-black;
+    box-shadow: $boxShadow;
+    min-width: 0;
+    white-space: normal;
+    border: 0;
+    background-color: $color-paleOrange;
+    @include word-break;
+    @include media(pc) {
+      padding: 0;
+    }
+    .inner {
+      width: 150px;
+      @include media(pc) {
+        width: auto;
+      }
+    }
+    @include media(pc) {
+    }
+    &::before {
+      content: '';
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      background: url('#{$imageUrl}/add_32@2x.png') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+  }
+}

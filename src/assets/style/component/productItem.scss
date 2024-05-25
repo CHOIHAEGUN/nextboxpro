@@ -1,0 +1,146 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* productItem */
+.productItem {
+  width: 100%;
+  @include media(pc) {
+    max-width: 330px;
+  }
+  .productItem_likeButton {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    z-index: 5;
+
+    @include likeButton;
+    @include media(pc) {
+      right: 8px;
+      bottom: 8px;
+    }
+  }
+
+  .productItem_imgWrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: $color-gray-hr;
+    border-radius: 4px;
+    overflow: hidden;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      z-index: 1;
+      overflow: hidden;
+      @include transition;
+    }
+    &:empty {
+      @include noImage;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &:hover {
+    .productItem_imgWrap {
+      &::before {
+        border-color: $color-orange;
+      }
+    }
+  }
+  &_request {
+    margin-top: 10px;
+    color: $color-orange;
+    font-size: 20px;
+    font-weight: $fontBold;
+    @include media(pc-wide) {
+      margin-top: 0;
+    }
+  }
+  &_desc {
+    margin-top: 16px;
+  }
+  &_agency {
+    margin-bottom: 4px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #666;
+  }
+  &_name {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: $fontBold;
+    @include ellipsis-multiline(2);
+    @include media(pc) {
+      @include ellipsis-multiline(1);
+    }
+  }
+  &_detail {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    @include media(pc-wide) {
+      margin-top: 14px;
+      flex-direction: row;
+    }
+  }
+  &_price {
+    margin-top: 6px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: $fontBold;
+    margin-left: auto;
+    white-space: nowrap;
+    @include media(pc-wide) {
+      margin: 0;
+    }
+
+    .unit {
+      margin-left: 4px;
+      font-size: 16px;
+      font-weight: $fontRegular;
+    }
+  }
+
+  &_price_origin {
+    margin-top: 8px;
+    line-height: 22px;
+    font-weight: $fontRegular;
+    color: #666;
+    white-space: nowrap;
+    @include media(pc-wide) {
+      margin: 0 0 0 16px;
+    }
+    &_num {
+      font-weight: $fontBold;
+      font-size: 18px;
+    }
+    .unit {
+      margin-left: 4px;
+      font-size: 16px;
+      font-weight: $fontRegular;
+    }
+  }
+  &_quantity {
+    line-height: 24px;
+    color: #999;
+    font-size: 18px;
+    letter-spacing: -0.45px;
+    @include media(pc-wide) {
+      margin-left: auto;
+    }
+  }
+}

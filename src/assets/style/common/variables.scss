@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* variables.scss */
+
+// Paths
+$imageUrl: '../../images';
+
+// Fonts
+$font-family-system: -apple-system, BlinkMacSystemFont, sans-serif; // system
+$font-family: 'Spoqa Han Sans Neo', system-ui, '-SF Pro Text', helvetica, 'Roboto', $font-family-system;
+
+$fontBold: 700;
+$fontMedium: 500;
+$fontRegular: 400;
+$fontLight: 300;
+$fontThin: 100;
+
+$maxWidth: 1410px;
+$widthMo: 300px;
+
+$layout-side: 20px;
+$layout-sidePc: 15px;
+$layout-maxWidth: $maxWidth + $layout-sidePc * 2;
+
+// Colors
+$color-black: #333;
+$color-paleGray: #d7d7d7;
+$color-gray: #666;
+$color-gray2: #999;
+$color-gray-bg: #f5f5f5;
+$color-gray-hr: #e8ebe8;
+$color-pink: #ff0075;
+$color-orange: #f37021;
+$color-paleOrange: #fffaf6;
+//boxShadow
+$boxShadow: 0 5px 10px #0000000d;
+
+$hrShadow: inset 0 1px 1px #0000000d;
+//dimed
+$dimed: rgba(0, 0, 0, 0.5);
+$enable-IE8: false !default;
+$root-em: 10;
+
+// Breakpoints
+$G-breakpoints: (
+  mobile-min: 320px,
+  mobile: 375px,
+  tablet: 768px,
+  pc: 1024px,
+  pc-wide: 1330px
+);
+
+// @font-face {
+//   font-family: 'NanumSquareR';
+//   font-style: normal;
+//   font-weight: $fontRegular;
+//   src: local(※), url(../fonts/NanumSquareR.woff) format('woff');
+// }

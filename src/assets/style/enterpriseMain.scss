@@ -1,0 +1,27 @@
+/* eventList */
+.wrap {
+  .container {
+    &.enterpriseMain_container {
+      max-width: none;
+    }
+  }
+}
+.enterpriseMain_container {
+  .enterpriseMain_section_wrap {
+    @include mainContainer;
+  }
+  .enterpriseMain_section {
+    @include mainSection;
+  }
+  .enterpriseMain_section_headline {
+    @include mainHeadLine;
+  }
+  .enterpriseItem_list {
+    @include mainEnterpriseItem;
+    &.type_wrap {
+      @include media(pc) {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

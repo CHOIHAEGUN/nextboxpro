@@ -1,0 +1,80 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* productItem */
+.enterpriseItem {
+  position: relative;
+  width: 100%;
+  @include media(pc) {
+    max-width: 450px;
+  }
+  & > a {
+    display: block;
+    padding: 20px 16px 16px;
+    border-top: 4px solid $color-black;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    @include transition;
+    @include media(pc) {
+      border-top-width: 6px;
+      padding: 19px 24px 16px;
+      box-shadow: $boxShadow;
+    }
+    &:hover {
+      border-color: $color-orange;
+    }
+  }
+  .enterpriseItem_name {
+    @include enterpriseNamewidthIcon;
+  }
+  .enterpriseItem_name_text {
+    @include ellipsis;
+  }
+  .enterpriseItem_detail {
+    margin: 9px 0 0;
+    display: flex;
+    font-size: 16px;
+    line-height: 21px;
+    color: $color-gray;
+    @include media(pc) {
+      margin: 10px 0 0;
+    }
+    & > * {
+      display: flex;
+      align-items: center;
+      &:first-child {
+        &::before {
+          content: normal;
+        }
+      }
+      &::before {
+        content: '';
+        display: block;
+        height: 12px;
+        width: 1px;
+        margin: 0 8px;
+        background-color: #d7d7d7;
+      }
+    }
+  }
+  .enterpriseItem_more {
+    display: flex;
+    align-items: center;
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: $fontBold;
+    @include media(pc) {
+      font-size: 18px;
+      margin-top: 24px;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+      background: url('#{$imageUrl}/ico_next_32@2x.png') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+  }
+}

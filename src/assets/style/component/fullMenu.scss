@@ -1,0 +1,100 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+.fullMenu {
+  position: absolute;
+  top: 208px;
+  left: 0;
+  right: 0;
+  padding: 40px 0 30px;
+  display: none;
+  background-color: $color-gray-bg;
+
+  &.active {
+    @include media(pc) {
+      display: block;
+      z-index: 10;
+    }
+    // &::after {
+    //   display: block;
+    // }
+  }
+
+  &_inner {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  // &::after {
+  //   content: '';
+  //   position: fixed;
+  //   display: none;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   background: rgba(0, 0, 0, 0.6);
+  // }
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &_title {
+    font-size: 20px;
+    font-weight: $fontBold;
+  }
+  &_close_button {
+    &::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: url('#{$imageUrl}/button_close_40@2x.png') center center no-repeat;
+      background-size: 100% auto;
+    }
+  }
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    overflow: hidden;
+  }
+  &_item {
+    width: 165px;
+    margin: 40px 0 20px 0;
+    &.enterprise_item {
+      width: 220px;
+    }
+    & > a,
+    button {
+      display: block;
+      padding: 3px 0 5px 17px;
+      border-left: 1px solid $color-paleGray;
+      font-weight: $fontBold;
+      font-size: 20px;
+    }
+  }
+  &_depth_list {
+    border-left: 1px solid $color-paleGray;
+  }
+  &_depth_item {
+    & > a,
+    button {
+      display: block;
+      padding: 6px 20px 6px 25px;
+      color: $color-gray;
+      font-size: 18px;
+      line-height: 22px;
+      &:hover,
+      &:active,
+      .active {
+        color: $color-orange;
+        font-weight: $fontBold;
+      }
+    }
+  }
+}

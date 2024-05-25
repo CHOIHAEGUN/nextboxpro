@@ -1,0 +1,19 @@
+/* Enterprise_List_01_1 */
+.enterpriseItem_list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  margin: 24px 0 0;
+  @include media(pc) {
+    margin: 40px -15px 0;
+  }
+  &_item {
+    margin: 0 0 32px;
+    width: 100%;
+    @include media(pc) {
+      margin: 0 0 40px;
+      padding: 0 15px;
+      width: calc(100% / 3);
+    }
+  }
+}

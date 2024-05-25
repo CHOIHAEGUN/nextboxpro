@@ -1,0 +1,127 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /*pagination*/
+
+$buttonSizeMo: 40px;
+$buttonSizePc: 50px;
+.pagination_wrap {
+  margin: 24px auto 0;
+  text-align: center;
+  @include media(pc) {
+    margin-top: 40px;
+  }
+
+  .pagination_more {
+    width: 100%;
+    font-weight: $fontRegular;
+    color: $color-black;
+    border-color: #ababab;
+    @include media(pc) {
+      display: none;
+    }
+    &::before {
+      @include arrow;
+      margin: -7px 12px 0 0;
+      border-color: $color-black;
+      transform: rotate(135deg);
+    }
+  }
+}
+.pagination {
+  display: none;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+  @include media(pc) {
+    display: inline-flex;
+    border: 1px solid $color-paleGray;
+  }
+  .button {
+    position: relative;
+    height: $buttonSizeMo;
+    width: $buttonSizeMo;
+    border-radius: unset;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    border: 0;
+    background-color: transparent;
+    @include media(pc) {
+      height: $buttonSizePc;
+      width: $buttonSizePc;
+      background-color: #fff;
+    }
+    &::before {
+      @include media(pc) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: $color-paleGray;
+      }
+    }
+    &:first-child {
+      &::before {
+        content: normal;
+      }
+    }
+
+    &:hover,
+    &.active {
+      color: $color-black;
+      // background-color: transparent;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #fff !important;
+      &:after {
+        opacity: 0.6;
+      }
+    }
+  }
+  .prev,
+  .next {
+    height: $buttonSizeMo;
+    width: $buttonSizeMo;
+    @include media(pc) {
+      height: $buttonSizePc;
+      width: $buttonSizePc;
+    }
+    &::after {
+      content: '';
+      display: block;
+      margin: auto;
+      width: 32px;
+      height: 32px;
+      background: url('#{$imageUrl}/ico_next_32@2x.png') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+  }
+
+  .prev_end,
+  .next_end {
+    &::after {
+      content: '';
+      display: block;
+      margin: auto;
+      width: 32px;
+      height: 32px;
+      background: url('#{$imageUrl}/ico_next_end_32@2x.png') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+  }
+
+  .prev,
+  .prev_end {
+    &::after {
+      transform: rotate(-180deg);
+    }
+  }
+  .number {
+    font-size: 16px;
+    color: #999;
+  }
+}

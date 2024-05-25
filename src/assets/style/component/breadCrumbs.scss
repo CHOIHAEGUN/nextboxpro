@@ -1,0 +1,71 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* bread_crumbs */
+.bread_crumbs {
+  margin-top: 7px;
+  padding-bottom: 7px;
+  font-size: 16px;
+  line-height: 23px;
+  color: $color-gray;
+  @include media(pc) {
+    padding-bottom: 0;
+  }
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   margin-top: 7px;
+  //   height: 1px;
+  //   margin: 7px #{-$layout-side} 0;
+  //   background-color: $color-paleGray;
+  //   @include media(pc) {
+  //     display: none;
+  //   }
+  // }
+  @include media(pc) {
+    margin-top: 17px;
+    border-bottom: 0;
+  }
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &_item {
+    position: relative;
+    margin-right: 8px;
+    padding-right: 11px;
+    &.home {
+      a {
+        display: block;
+        &::before {
+          content: '';
+          display: block;
+          width: 24px;
+          height: 24px;
+          background: url('#{$imageUrl}/home_24@2x.png') no-repeat 0 0;
+          background-size: 100% auto;
+        }
+      }
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 9px;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      border-width: 1px 1px 0 0;
+      border-color: #ababab;
+      transform: rotate(45deg);
+      border-style: solid;
+    }
+    &:last-child {
+      &::after {
+        content: normal;
+      }
+    }
+    &.active {
+      font-weight: $fontBold;
+    }
+  }
+}

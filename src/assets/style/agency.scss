@@ -1,0 +1,35 @@
+.bread_crumbs + .form_box_wrap {
+  margin-top: 60px;
+}
+.form_header_title {
+  font-size: 34px;
+  font-weight: $fontBold;
+  padding: 20px 0 60px;
+  text-align: center;
+  display: none;
+  @include media(pc) {
+    display: block;
+  }
+  .agency_container & {
+    display: block;
+  }
+}
+.form_header_text {
+  font-size: 20px;
+  font-weight: $fontBold;
+  padding: 13px 0 0;
+  text-align: left;
+  & + .tab_list {
+    margin-top: 40px;
+  }
+  @include media(pc) {
+    font-size: 34px;
+    text-align: center;
+    padding: 20px 0 0;
+  }
+  .saleInquiry_container & {
+    font-size: 34px;
+    text-align: center;
+    padding: 20px 0 0;
+  }
+}

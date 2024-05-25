@@ -1,0 +1,5 @@
+declare module 'core-js/stable'
+declare module 'regenerator-runtime/runtime'
+declare module 'react-app-polyfill/ie9'
+declare module 'react-app-polyfill/ie11'
+declare module 'react-app-polyfill/stable'

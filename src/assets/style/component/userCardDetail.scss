@@ -1,0 +1,144 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* productItem */
+.userCardDetail {
+  .userCardDetail_userWrap {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .userCardDetail_userImg {
+    display: flex;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    overflow: hidden;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(#ccc, 0.8);
+      border-radius: 4px;
+    }
+    &::after {
+      content: '';
+      display: block;
+      margin: auto;
+      width: 60px;
+      height: 60px;
+      background: url('#{$imageUrl}/header_mobileMenu_userImg@2x.png') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .userCardDetail_user {
+    margin-left: 16px;
+    .user {
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: $fontBold;
+    }
+    .office {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .belong {
+      font-size: 16px;
+      line-height: 24px;
+      color: #999;
+      .belong_item {
+        &::before {
+          display: inline-block;
+          content: '';
+          width: 1px;
+          height: 10px;
+          background-color: $color-paleGray;
+          margin: 0 10px;
+        }
+        &:first-of-type {
+          &::before {
+            content: normal;
+          }
+        }
+      }
+    }
+  }
+  .userCardDetail_info {
+    margin-top: 26px;
+    font-size: 18px;
+    line-height: 26px;
+    div[class^='detail_'] {
+      position: relative;
+      padding-left: 41px;
+      margin-top: 3px;
+      @include word-break;
+      &:first-of-type {
+        margin-top: 0;
+      }
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% auto;
+      }
+
+      a {
+        display: block;
+        margin-top: 2px;
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+      &.detail_email {
+        &::before {
+          background-image: url('#{$imageUrl}/detail_email@2x.png');
+        }
+      }
+      &.detail_tel {
+        &::before {
+          background-image: url('#{$imageUrl}/detail_phone@2x.png');
+        }
+      }
+      &.detail_fax {
+        &::before {
+          background-image: url('#{$imageUrl}/detail_fax@2x.png');
+        }
+      }
+      &.detail_address {
+        &::before {
+          background-image: url('#{$imageUrl}/detail_address@2x.png');
+        }
+      }
+    }
+  }
+  &.type_row {
+    display: flex;
+    align-items: flex-start;
+    padding: 24px 40px;
+    border-top: 2px solid $color-black;
+    border-bottom: 1px solid $color-paleGray;
+    .userCardDetail_info {
+      margin-top: 16px;
+      margin-left: 40px;
+    }
+    .userCardDetail_userImg {
+      width: 110px;
+      height: 110px;
+    }
+  }
+}

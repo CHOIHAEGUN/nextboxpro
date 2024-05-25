@@ -1,0 +1,72 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+/* productDetail */
+
+.productDetail_option_handle {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding: 35px 20px 130px;
+  border-top: 1px solid $color-paleGray;
+  border-left: 1px solid $color-paleGray;
+  border-right: 1px solid $color-paleGray;
+  border-radius: 16px 16px 0 0;
+  background-color: #fff;
+  z-index: 5;
+  transform: translateY(70px);
+  @include transition;
+  @include media(pc) {
+    display: none;
+  }
+  &.active {
+    transform: translateY(0);
+  }
+
+  .bottomSheet_handle {
+    position: absolute;
+    padding: 8px 100px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    &::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 3px;
+      border-radius: 4px;
+      background-color: $color-paleGray;
+    }
+  }
+  .productDetail_option_buttonArea {
+    margin: 0;
+  }
+}
+.productDetail_container {
+  .productDetail_option_handle {
+    transform: translateY(83%);
+    height: 564px;
+    &.active {
+      transform: translateY(0);
+    }
+  }
+}
+.productDetail_cta_buttonArea {
+  margin-top: 16px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  z-index: 10;
+  border-radius: 0;
+  @include media(pc) {
+    display: none;
+    position: static;
+  }
+}

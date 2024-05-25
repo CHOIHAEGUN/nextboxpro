@@ -1,0 +1,325 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+$minHeightPC: 169px;
+$rowSpace: 26px;
+.purchase_item {
+  border-top: 2px solid $color-black;
+  border-bottom: 1px solid $color-black;
+  &.first {
+    margin-top: 40px;
+  }
+  &.type_info {
+    border-bottom-color: $color-paleGray;
+    .purchase_item_row {
+      border-top: 0;
+    }
+    .purchase_item_option {
+      flex: 1;
+    }
+  }
+  &_row_agency {
+    margin-bottom: 4px;
+    font-size: 18px;
+    color: $color-gray;
+  }
+  &_detail {
+    margin-top: 30px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
+    .purchase_order_timeline + & {
+      margin-top: 0;
+    }
+    &_button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-left: auto;
+      line-height: 32px;
+      font-size: 18px;
+      font-weight: $fontBold;
+      &::after {
+        @include arrow;
+        border-color: $color-black;
+      }
+    }
+  }
+  &_option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 20%;
+    margin-top: 0;
+    padding: 0 $rowSpace;
+    border-left: 1px solid $color-paleGray;
+  }
+  &_option_item {
+    font-size: 18px;
+    line-height: 26px;
+    & > * {
+      display: inline;
+      align-items: center;
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+      &::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        background-color: $color-paleGray;
+        width: 1px;
+        height: 18px;
+        margin: 0 13px;
+      }
+    }
+    & + .purchase_item_option_item {
+      margin-top: 16px;
+    }
+  }
+  &_header {
+    height: 66px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    &_name {
+      @include font26;
+    }
+    &_button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-left: auto;
+      @include font18;
+      font-weight: $fontBold;
+      &::after {
+        @include arrow;
+        border-color: $color-gray;
+      }
+    }
+  }
+  // checkbox
+  .no_label {
+    margin-right: 16px;
+  }
+  &_price_wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    row-gap: 3px;
+
+    .purchase_item_price {
+      font-size: 20px;
+      font-weight: $fontBold;
+      .unit {
+        font-size: 16px;
+        font-weight: $fontRegular;
+        margin-left: 3px;
+      }
+    }
+    .purchase_item_price_origin {
+      flex-shrink: 0;
+      font-size: 18px;
+      font-weight: 400;
+      margin-left: 16px;
+      margin-right: 24px;
+      color: #666;
+      del {
+        @include del;
+      }
+      .unit {
+        font-size: 16px;
+        font-weight: $fontRegular;
+        margin-left: 3px;
+      }
+    }
+  }
+
+  &_quantity {
+    flex-shrink: 0;
+    font-size: 18px;
+    line-height: 24px;
+    color: #999;
+  }
+
+  &_row {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    padding: 24px;
+    min-height: 160px;
+    border-top: 1px solid $color-paleGray;
+
+    &_imgWrap {
+      flex-shrink: 0;
+      position: relative;
+      width: 110px;
+      height: 110px;
+      border-radius: 4px;
+      overflow: hidden;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 1px solid $color-paleGray;
+        border-radius: 4px;
+        z-index: 1;
+        opacity: 0.7;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &_desc {
+      margin-left: 16px;
+    }
+    &_detail {
+      display: flex;
+      flex-basis: 40%;
+      padding-right: $rowSpace;
+    }
+    &_name {
+      @include font18;
+      font-weight: $fontBold;
+      @include ellipsis-multiline(2);
+    }
+  }
+
+  .purchase_item_total_row {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    align-items: center;
+    padding: 7px 24px;
+    min-height: 66px;
+    border-top: 1px solid $color-paleGray;
+    background-color: $color-paleOrange;
+
+    .purchase_item_total_text {
+      display: block;
+      font-weight: $fontBold;
+      margin-right: 32px;
+    }
+
+    .purchase_item_total_item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 20px;
+      line-height: 25px;
+
+      .title {
+        padding: 0 8px;
+      }
+
+      .unit {
+        @include font20;
+        font-weight: $fontRegular;
+        margin-left: 3px;
+      }
+      .price {
+        font-weight: $fontBold;
+        margin-left: 3px;
+        font-size: 24px;
+      }
+      & + .purchase_item_total_item {
+        margin-top: 0;
+        &::before {
+          content: '+';
+          display: block;
+          margin: 0 16px;
+        }
+        &::after {
+          content: '=';
+          display: block;
+          margin: 0 16px;
+        }
+      }
+    }
+
+    .purchase_item_total_final {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+      .title {
+        @include blind;
+      }
+      .unit {
+        font-size: 20px;
+        font-weight: $fontRegular;
+        margin-left: 3px;
+      }
+      .price {
+        font-size: 24px;
+        font-weight: $fontBold;
+      }
+    }
+    .purchase_item_total_final_buttonGroup {
+      margin-left: auto;
+      .button {
+        & + .button {
+          margin-left: 24px;
+        }
+      }
+    }
+    .final_button {
+      width: auto;
+      min-width: 200px;
+    }
+  }
+
+  &_state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 22%;
+    padding: 0 $rowSpace;
+    border-left: 1px solid $color-paleGray;
+    line-height: 30px;
+    text-align: center;
+    font-weight: $fontBold;
+    min-height: 110px;
+    row-gap: 4px;
+    .caution {
+      color: $color-gray;
+      line-height: 28px;
+      font-weight: $fontRegular;
+      @include word-break;
+    }
+  }
+  &_buttonArea {
+    flex-basis: 18%;
+    padding-left: $rowSpace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+    border-left: 1px solid $color-paleGray;
+    min-height: 110px;
+    min-width: 226px;
+    .button {
+      min-width: 200px;
+      & + .button {
+        margin-top: 8px;
+      }
+    }
+  }
+}

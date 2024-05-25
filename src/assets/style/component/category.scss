@@ -1,0 +1,135 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* header_category */
+
+.header_category {
+  height: 60px;
+  border-bottom: 1px solid $color-paleGray;
+  white-space: nowrap;
+  background-color: #f5f5f5;
+
+  .header_category_inner {
+    display: flex;
+    max-width: $layout-maxWidth;
+    margin: 0 auto;
+    height: inherit;
+    font-size: 20px;
+    line-height: 1.6;
+    color: $color-black;
+    padding: 0 0 0 $layout-side;
+    @include media(pc) {
+      padding: 0 $layout-sidePc;
+    }
+  }
+  .header_category_select {
+    position: relative;
+    width: 100px;
+    margin-right: 0;
+    margin-left: -$layout-sidePc;
+    &::after {
+      content: '';
+      display: inline-block;
+      margin-top: -3px;
+      vertical-align: middle;
+      width: 1px;
+      height: 20px;
+      background-color: #d7d7d7;
+    }
+    &.dropdown {
+      background-color: transparent;
+      font-size: 20px;
+      .dropdown_button {
+        border: 0;
+        height: 60px;
+        font-weight: $fontBold;
+        span {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+          &::after {
+            content: '';
+            display: inline-block;
+            background-image: url('#{$imageUrl}/ico_header_category_select_button@2x.png');
+            background-size: 100% auto;
+            height: 24px;
+            width: 24px;
+          }
+        }
+      }
+      .dropdown_group {
+        width: 100px;
+        margin-right: 16px;
+        border: 0;
+        top: 53px;
+        left: 0;
+        background-color: $color-gray-bg;
+        box-shadow: 2px 2px 5px #0000001a;
+        border-radius: 4px;
+        z-index: 20;
+      }
+      .dropdown_item_button {
+        color: $color-black;
+        &.active,
+        &:hover {
+          color: $color-orange;
+          background-color: transparent;
+        }
+        span {
+          display: flex;
+          align-items: center;
+          &::after {
+            content: '';
+            display: inline-block;
+            margin-left: 8px;
+            background: url('#{$imageUrl}/ico_header_category_select_button@2x.png') no-repeat top left;
+            background-size: 100% auto;
+            height: 24px;
+            width: 24px;
+            @include transition;
+          }
+        }
+      }
+    }
+  }
+
+  .header_category_list {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-right: 20px;
+    @include media(pc) {
+      padding-right: 0;
+      overflow-x: visible;
+    }
+    &.only_pc {
+      display: none;
+      @include media(pc) {
+        display: flex;
+      }
+    }
+    &.only_mobile {
+      display: flex;
+      @include media(pc) {
+        display: none;
+      }
+    }
+    .header_category_item {
+      margin-left: 24px;
+      display: inline-flex;
+      align-items: center;
+      height: 60px;
+      &:first-child {
+        margin-left: 16px;
+      }
+      a,
+      button {
+        &.active,
+        &:hover {
+          color: $color-orange;
+          font-weight: $fontMedium;
+        }
+      }
+    }
+  }
+}

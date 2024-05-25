@@ -1,0 +1,70 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+.eventDetail_section_info {
+  display: none;
+  @include media(pc) {
+    display: block;
+    position: sticky;
+    top: 190px;
+    right: 0;
+    max-width: 360px;
+    margin: 56px 0 0 30px;
+    flex: 1;
+    border-top: 1px solid $color-black;
+  }
+
+  .eventDetail_section_infoSub {
+    display: flex;
+    padding: 24px 0 0;
+    font-size: 16px;
+    line-height: 21px;
+    color: $color-gray;
+    @include media(pc) {
+      padding: 28px 0 0;
+    }
+    .eventDetail_section_share_button {
+      margin-left: auto;
+
+      &::before {
+        content: '';
+        display: block;
+        background: url('#{$imageUrl}/share_24@2x.png') no-repeat 0 0;
+        background-size: 100% auto;
+        height: 24px;
+        width: 24px;
+        @include transition;
+      }
+    }
+  }
+  .eventDetail_section_infoDate {
+    padding-top: 8px;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: $fontBold;
+  }
+  .eventDetail_section_infoSummary {
+    margin: 11px 0 44px;
+    color: $color-gray;
+    font-size: 18px;
+    line-height: 24px;
+    @include ellipsis-multiline(2);
+    @include media(pc) {
+      margin-bottom: 32px;
+    }
+  }
+  .eventDetail_section_buttonArea {
+    @include media(pc) {
+      border-top: 1px solid $color-paleGray;
+      padding-top: 16px;
+    }
+  }
+  .eventDetail_section_joinButton {
+    display: none;
+    @include media(pc) {
+      width: 100%;
+      display: block;
+    }
+  }
+}

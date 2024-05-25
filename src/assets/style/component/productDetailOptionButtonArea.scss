@@ -1,0 +1,82 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+/* productDetail */
+
+.productDetail_option_buttonArea {
+  display: flex;
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  right: 20px;
+  margin: 19px 0 0;
+  @include media(pc) {
+    margin: 40px 0 0;
+    position: static;
+  }
+  .button {
+    min-width: 0;
+    padding: 0 16px;
+    letter-spacing: -0.5px;
+    & + .button {
+      margin-left: 8px;
+    }
+    &:not(.productDetail_cart_button) {
+      flex: 1;
+    }
+  }
+}
+.productDetail_cart_button {
+  flex: 0.3;
+  &::before {
+    content: '';
+    display: block;
+    margin: auto;
+    background: url('#{$imageUrl}/product_detail_cart@2x.png') no-repeat 0 0;
+    height: 30px;
+    width: 30px;
+    background-size: 100% auto;
+  }
+}
+.productDetail_cta_buttonArea {
+  margin-top: 24px;
+  display: block;
+  // margin: 24px #{-$layout-side} 0;
+  @include media(pc) {
+    margin: 24px 0 0;
+  }
+  .button {
+    flex: 1;
+    width: 100%;
+    border-radius: 0;
+    height: 64px;
+    padding: 0;
+    @include media(pc) {
+      flex: none;
+      height: 50px;
+      border-radius: 4px;
+      & + .button {
+        margin-top: 16px;
+      }
+    }
+  }
+  @include media(pc) {
+    flex-direction: column;
+  }
+}
+.flyingBtn {
+  min-width: 0 !important;
+  flex: none !important;
+  width: 20px;
+  height: 20px;
+  padding: 0 !important;
+  border-radius: 100px;
+  border: 0;
+  background: $color-orange;
+  transform-origin: center bottom;
+  transform: scale(1);
+  z-index: 40;
+  &::before {
+    content: normal;
+  }
+}

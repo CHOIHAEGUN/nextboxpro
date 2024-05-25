@@ -1,0 +1,223 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+.searchLayer {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: column;
+  max-width: $maxWidth;
+  margin: auto;
+  padding: 16px 20px;
+  @include media(pc) {
+    justify-content: center;
+  }
+
+  &_popup {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+
+    // &::before {
+    //   content: '';
+    //   display: block;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   z-index: 1;
+    //   width: 100%;
+    //   height: 100%;
+    //   background: rgba(0, 0, 0, 0.6);
+    // }
+    &.active {
+      display: block;
+    }
+  }
+  &_inner {
+    display: flex;
+    width: 100%;
+    height: 49px;
+    border-bottom: 1px solid $color-black;
+    @include media(pc) {
+      height: 60px;
+      justify-content: space-between;
+    }
+  }
+  &_header {
+    position: relative;
+    display: flex;
+  }
+  &_close_button {
+    margin-left: 8px;
+    @include media(pc) {
+      position: absolute;
+      top: -80px;
+      right: 0;
+    }
+    &::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+      background: url('#{$imageUrl}/button_close_32@2x.png') no-repeat 0 0;
+      background-size: 100% auto;
+      @include media(pc) {
+        width: 40px;
+        height: 40px;
+        background: url('#{$imageUrl}/button_close_40@2x.png') no-repeat 0 0;
+        background-size: 100% auto;
+        opacity: 0.3;
+      }
+    }
+  }
+  &_input {
+    border: 0;
+    height: 100%;
+    width: calc(100% - 66px);
+    padding-left: 12px;
+    font-size: 20px;
+    font-weight: $fontBold;
+    outline: none;
+    background-color: transparent;
+    &::placeholder {
+      color: $color-black;
+    }
+    @include media(pc) {
+      font-size: 25px;
+      padding-left: 0;
+    }
+  }
+  &_search_button {
+    padding: 0 17px;
+    @include media(pc) {
+      padding: 0;
+    }
+    &::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+      background: url('#{$imageUrl}/search_32@2x.png') center center no-repeat;
+      background-size: 100% auto;
+      @include media(pc) {
+        width: 40px;
+        height: 40px;
+        background: url('#{$imageUrl}/search_40@2x.png') center center no-repeat;
+        background-size: 100% auto;
+      }
+    }
+  }
+  .searchLayer_content {
+    margin-top: 43px;
+    @include media(pc) {
+      margin-top: 40px;
+      display: flex;
+    }
+  }
+  .searchLayer_content_column {
+    @include media(pc) {
+      width: calc(100% * 2 / 3);
+      padding-right: 50px;
+      border-right: 1px solid $color-paleGray;
+      box-sizing: content-box;
+    }
+  }
+  .searchLayer_section {
+    margin-top: 43px;
+    @include media(pc) {
+      margin-top: 0;
+      padding-bottom: 40px;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &.popular_section {
+      @include media(pc) {
+        width: calc(100% / 3);
+        padding-left: 50px;
+        box-sizing: content-box;
+      }
+    }
+  }
+  .searchLayer_section_title {
+    font-size: 20px;
+    font-weight: $fontBold;
+    margin-bottom: 16px;
+    @include media(pc) {
+      line-height: 27px;
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+  }
+  .searchLayer_section_list {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 #{$layout-side};
+    margin: 0 #{-$layout-side};
+    @include media(pc) {
+      margin-top: -8px;
+      overflow: hidden;
+      flex-wrap: wrap;
+    }
+  }
+  .searchLayer_recentItem {
+    @include chip;
+    color: $color-black;
+  }
+  .searchLayer_section_noData {
+    font-size: 18px;
+    line-height: 22px;
+    color: $color-black;
+    @include media(pc) {
+      font-size: 20px;
+    }
+  }
+  .searchLayer_recommendItem {
+    @include chip;
+    color: $color-orange;
+    border-color: $color-orange;
+    &:hover {
+      background-color: unset;
+      box-shadow: none;
+    }
+  }
+  .searchLayer_section_popular {
+    counter-reset: popular;
+  }
+  .searchLayer_popularItem {
+    position: relative;
+    margin-top: 28px;
+    padding-left: 20px;
+    line-height: 22px;
+    font-size: 18px;
+    color: $color-gray;
+    @include ellipsis;
+    @include media(pc) {
+      margin-top: 23px;
+      font-size: 20px;
+      line-height: 25px;
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      counter-increment: popular;
+      content: counter(popular);
+      color: $color-orange;
+      font-weight: $fontBold;
+    }
+  }
+}

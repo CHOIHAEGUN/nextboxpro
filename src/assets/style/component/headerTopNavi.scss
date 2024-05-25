@@ -1,0 +1,202 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+// pc 에서 최상단, mo 에서는 햄버거버튼 내부 하단에 위치
+/* header_top_navi */
+.header_top_navi {
+  padding: 24px 20px 40px;
+  background-color: #222;
+  @include media(pc) {
+    padding: 0;
+  }
+  &.only_pc {
+    display: none;
+    @include media(pc) {
+      display: block;
+    }
+  }
+
+  .header_top_navi_inner {
+    display: flex;
+    flex-wrap: wrap;
+    @include media(pc) {
+      max-width: $layout-maxWidth;
+      margin: 0 auto;
+      padding: 0 $layout-sidePc;
+    }
+  }
+  .header_top_navi_list {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include media(pc) {
+      display: inline-flex;
+      justify-content: normal;
+      width: auto;
+      margin-left: -13px;
+    }
+  }
+  .header_top_navi_item {
+    position: relative;
+    width: 33.33%;
+    height: 33px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+    white-space: nowrap;
+    &.grayText {
+      color: #ccc;
+    }
+    @include media(pc) {
+      width: auto;
+      height: 40px;
+      padding: 0 13px;
+      font-size: 15px;
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 16px;
+      background-color: #ccc;
+      @include media(pc) {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 13px;
+      }
+    }
+
+    &:nth-child(3n) {
+      &::after {
+        content: normal;
+        @include media(pc) {
+          content: '';
+        }
+      }
+    }
+    &:last-child {
+      &::after {
+        @include media(pc) {
+          content: normal;
+        }
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      @include media(pc) {
+        justify-content: left;
+      }
+    }
+  }
+  .mobile_login_button {
+    width: 100%;
+    height: 46px;
+    border: 1px solid $color-orange;
+    margin-bottom: 16px;
+    color: $color-orange;
+    border-radius: 100px;
+    font-weight: $fontBold;
+    @include transition;
+    &:hover {
+      color: #fff;
+      background-color: $color-orange;
+    }
+    @include media(pc) {
+      display: none;
+    }
+  }
+  .header_top_subNavi_list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: -33px;
+    width: 100%;
+    @include media(pc) {
+      margin: 0 -13px 0 auto;
+      display: inline-flex;
+      flex-wrap: nowrap;
+      justify-content: normal;
+      width: auto;
+    }
+  }
+  .header_top_subNavi_item {
+    position: relative;
+
+    width: 33.33%;
+    height: 33px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+    @include media(pc) {
+      width: auto;
+      padding: 0 13px;
+      height: 40px;
+      font-size: 12px;
+      line-height: 17px;
+    }
+    &.grayText {
+      color: #ccc;
+    }
+    &.only_mobile {
+      display: block;
+      @include media(pc) {
+        display: none;
+      }
+    }
+    &.only_pc {
+      display: none;
+      @include media(pc) {
+        display: block;
+      }
+    }
+    &:nth-child(3n) {
+      &::after {
+        content: normal;
+        @include media(pc) {
+          content: '';
+        }
+      }
+    }
+    &::after {
+      content: normal;
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 12px;
+      background-color: #ccc;
+      @include media(pc) {
+        content: '';
+      }
+    }
+    &:last-child {
+      &::after {
+        content: normal;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      @include media(pc) {
+        justify-content: left;
+      }
+    }
+  } /* end: header_top_subNavi_list */
+}
+/* end: header_top_navi */

@@ -1,0 +1,47 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /*footer*/
+/* swiper */
+.swiper_enterpriseRow {
+  position: relative;
+  margin: 0 #{-$layout-side};
+  @include media(pc) {
+    margin: 0;
+  }
+  .swiper {
+    @include media(pc) {
+      padding-bottom: 70px;
+      box-sizing: content-box;
+    }
+    &.swiper_only {
+      .section_moreArea {
+        display: none;
+      }
+    }
+  }
+
+  .swiper-wrapper {
+    padding: 0 #{$layout-side};
+    width: auto;
+    @include media(pc) {
+      overflow-x: visible;
+      padding: 0;
+      width: 100%;
+    }
+  }
+  .swiper-slide {
+    @include max-media(pc) {
+      width: 300px !important;
+    }
+  }
+
+  .section_moreArea {
+    display: none;
+    @include media(pc) {
+      display: inline-flex;
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+/* productDetail */
+.productDetail_section {
+  .productDetail_brand {
+    @include LinkTextArrow_18;
+    &::after {
+      content: normal;
+    }
+    .ico_certify {
+      &::before {
+        @include media(pc) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+  .productDetail_promotion_link {
+    @include LinkTextArrow_16;
+  }
+
+  .productDetail_section_headline {
+    @include DetailHeadline;
+  }
+}

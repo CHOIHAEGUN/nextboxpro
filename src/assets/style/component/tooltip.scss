@@ -1,0 +1,71 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /*info_tooltip*/
+.info_tooltip_wrap {
+  position: relative;
+  line-height: 0;
+  .btn_help {
+    position: relative;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    background: url('#{$imageUrl}/info_32@2x.png') 0 0 no-repeat;
+    background-size: 100% auto;
+  }
+  .info_tooltip {
+    position: absolute;
+    top: 32px;
+    left: -50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    border: 1px solid $color-orange;
+    min-width: 220px;
+    height: auto;
+    padding: 16px;
+    background: #fff;
+    border-radius: 0 10px 10px 10px;
+    box-shadow: $boxShadow;
+    display: none;
+    @include word-break;
+
+    @include media(pc) {
+      left: 4px;
+      min-width: 385px;
+      transform: translateX(0);
+    }
+  }
+  &:hover {
+    .info_tooltip {
+      display: block;
+    }
+  }
+  .tooltip_inner {
+    width: 100%;
+    letter-spacing: -0.03em;
+    .tit_section {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tit {
+      color: #3982d8;
+    }
+    .btn_delete_grey {
+      width: 14px;
+      height: 14px;
+      background: url('#{$imageUrl}/ico_cancel_grey.png') center center no-repeat;
+      background-size: 10px 10px;
+    }
+    .cnt {
+      font-size: 16px;
+      line-height: 24px;
+      color: $color-gray2;
+      white-space: pre-wrap;
+      font-weight: $fontRegular;
+      &.nowrap {
+        white-space: nowrap;
+      }
+    }
+  }
+}

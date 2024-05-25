@@ -1,0 +1,67 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+/*radio*/
+.radio_wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 15px;
+  grid-gap: 10px;
+  font-size: 18px;
+  line-height: 22px;
+  @include media(pc) {
+    font-size: 20px;
+    line-height: 25px;
+  }
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+  .radio_label {
+    cursor: pointer;
+  }
+  input[type='radio'] {
+    display: none;
+    & + .radio_label {
+      position: relative;
+      padding-left: 32px;
+      line-height: 24px;
+      white-space: nowrap;
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: #fff url('#{$imageUrl}/radio_24@2x.png') no-repeat 0 0;
+        background-size: 100% auto;
+      }
+      &:hover {
+        &::before {
+          background-position: 0 -24px;
+        }
+      }
+    }
+    &:checked {
+      & + .radio_label {
+        &::before {
+          background-position: 0 -48px;
+        }
+      }
+      &:disabled + .radio_label {
+        &::before {
+          background-position: 0 -72px;
+        }
+      }
+    }
+    &:disabled + .radio_label {
+      color: #999;
+      &::before {
+        background-position: 0 -96px;
+      }
+    }
+  }
+}

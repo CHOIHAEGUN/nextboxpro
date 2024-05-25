@@ -1,0 +1,133 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* productItem */
+.quickmenu {
+  position: fixed;
+  bottom: 190px;
+  right: $layout-side;
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  z-index: 10;
+  @include transition;
+  @include media(pc) {
+    bottom: 210px;
+    right: $layout-side;
+    width: 80px;
+    border: 1px solid $color-paleGray;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px #0000000d;
+  }
+  @include media($layout-maxWidth) {
+    right: 50%;
+    margin-right: calc(-#{$layout-maxWidth} / 2 - 40px - 50px);
+  }
+
+  button[class*='_button'] {
+    position: relative;
+    margin-top: 8px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: $boxShadow;
+    @include transition;
+    &:hover {
+      background-color: #fff;
+    }
+    @include media(pc) {
+      margin-top: 0;
+      width: 100%;
+      height: 80px;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    &::before {
+      @include media(pc) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: $color-paleGray;
+      }
+    }
+    &:first-child {
+      margin-top: 0;
+      &::before {
+        @include media(pc) {
+          display: none;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+      margin: auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% auto;
+      @include media(pc) {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+  button {
+    &.quickmenu_talk_button {
+      background-color: $color-pink;
+      &:hover {
+        background-color: $color-pink;
+      }
+      @include media(pc) {
+        background-color: #fff;
+        &:hover {
+          background-color: #fff;
+        }
+      }
+      &::after {
+        background-image: url('#{$imageUrl}/quick_chat_mo@2x.png');
+        @include media(pc) {
+          background-image: url('#{$imageUrl}/quick_chat_pc@2x.png');
+        }
+      }
+    }
+    &.quickmenu_filter_button {
+      &::after {
+        background-image: url('#{$imageUrl}/quick_filter_mo@2x.png');
+        @include media(pc) {
+          background-image: url('#{$imageUrl}/quick_filter_pc@2x.png');
+        }
+      }
+    }
+    &.quickmenu_top_button {
+      opacity: 0;
+      height: 0;
+      visibility: hidden;
+      &::after {
+        background-image: url('#{$imageUrl}/quick_top_mo@2x.png');
+        @include media(pc) {
+          background-image: url('#{$imageUrl}/quick_top_pc@2x.png');
+        }
+      }
+    }
+  }
+  &.active {
+    button {
+      &.quickmenu_top_button {
+        opacity: 1;
+        visibility: visible;
+        height: 50px;
+        @include media(pc) {
+          height: 80px;
+        }
+      }
+    }
+  }
+}

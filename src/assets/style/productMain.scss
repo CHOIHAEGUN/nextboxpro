@@ -1,0 +1,51 @@
+$widthMo: 300px;
+/* eventList */
+.wrap {
+  .container {
+    &.productMain_container {
+      max-width: none;
+    }
+  }
+}
+.productMain_container {
+  .productMain_section_wrap {
+    @include mainContainer;
+  }
+  .productMain_section {
+    @include mainSection;
+  }
+  .productMain_section_headline {
+    @include mainHeadLine;
+  }
+  .BundleProductItem_list {
+    @include mainBundleProduct;
+  }
+  .enterpriseItem_list {
+    @include mainEnterpriseItem;
+  }
+
+  .eventItem_list {
+    margin: 0 #{-$layout-side};
+    padding: 0 #{$layout-side};
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    @include media(pc) {
+      padding: 0;
+      margin: 0 -15px;
+      flex-wrap: wrap;
+    }
+    &_item {
+      width: $widthMo;
+      flex-shrink: 0;
+      margin: 0 10px 0 0;
+      scroll-snap-align: center;
+      @include media(pc) {
+        margin-right: 0;
+        padding: 0 15px;
+        width: calc(100% / 4);
+      }
+    }
+  }
+}

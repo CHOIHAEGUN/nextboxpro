@@ -1,0 +1,89 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss'; /* button */
+/* tab_list*/
+.tab_list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 16px;
+  @include media(pc) {
+    border-radius: 4px;
+    margin-bottom: 40px;
+  }
+  .tab_item {
+    flex: 1;
+    .tab_item_button {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      font-size: 20px;
+      @include media(pc) {
+        height: 60px;
+        font-size: 22px;
+        border-width: 1px 0 1px;
+        border-style: solid;
+        border-color: $color-paleGray;
+      }
+      &.active {
+        font-weight: $fontBold;
+        @include transition;
+        @include media(pc) {
+          background-color: $color-black !important;
+          color: #fff;
+          border-color: $color-black;
+        }
+        &::before {
+          height: 2px;
+          background-color: $color-black;
+        }
+      }
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: $color-paleGray;
+        @include media(pc) {
+          bottom: auto;
+          top: 0;
+          left: 0;
+          right: auto;
+          width: 1px;
+          height: 100%;
+        }
+      }
+    }
+    @include media(pc) {
+      &:first-child {
+        .tab_item_button {
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          border-left: 1px solid $color-paleGray;
+          &::before {
+            content: normal;
+          }
+        }
+      }
+      &:last-child {
+        .tab_item_button {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          border-right: 1px solid $color-paleGray;
+        }
+      }
+    }
+  }
+}
+
+.tab_content {
+  display: none;
+  &.active {
+    display: block;
+    @include transition;
+  }
+}

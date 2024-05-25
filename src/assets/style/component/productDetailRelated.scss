@@ -1,0 +1,106 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+/* productDetail */
+
+.productDetail_related {
+  .Accordion {
+    box-shadow: none;
+    background-color: transparent;
+    &::before {
+      display: none;
+    }
+    &.Mui-expanded {
+      margin-top: 40px;
+      @include media(pc) {
+        margin-top: 60px;
+      }
+    }
+  }
+  .AccordionSummary {
+    padding: 0;
+    min-height: 60px !important;
+    line-height: 25px;
+    font-size: 20px;
+    font-weight: $fontBold;
+    color: $color-black;
+    box-sizing: border-box;
+    // border-bottom: 2px solid $color-black;
+    border-bottom: 1px solid $color-paleGray;
+    @include media(pc) {
+      font-size: 22px;
+    }
+    &.Mui-expanded {
+      border-bottom: 2px solid $color-black;
+    }
+
+    .Mui-expanded {
+      margin: 0;
+    }
+    .MuiSvgIcon-root {
+      color: $color-black;
+      width: 32px;
+      height: 32px;
+      path {
+        stroke-width: 1;
+        stroke: $color-gray-bg;
+      }
+    }
+  }
+  .AccordionDetails {
+    padding: 0;
+  }
+  .AccordionDetails_row {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid $color-paleGray;
+    @include media(pc) {
+      padding: 12px 16px;
+    }
+    &_title {
+      flex-shrink: 0;
+      width: 40%;
+      max-width: 545px;
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: $fontBold;
+      @include word-break;
+      @include media(pc) {
+        font-size: 20px;
+        line-height: 34px;
+      }
+    }
+    &_cont {
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 26px;
+      @include media(pc) {
+        font-size: 20px;
+        line-height: 34px;
+      }
+    }
+    .volume_list {
+      @include media(pc) {
+        display: flex;
+        li {
+          display: flex;
+          align-items: center;
+          &::before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 19px;
+            margin: 2px 16px 0;
+            background: $color-paleGray;
+          }
+          &:first-child {
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

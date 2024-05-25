@@ -1,0 +1,93 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+/* productDetail */
+.productDetailId {
+  scroll-margin-top: 120px;
+}
+.productDetail_registerInfo_wrap {
+  @include media(pc) {
+    margin-top: 79px;
+    border-top: 2px solid $color-black;
+  }
+  // tab 같은 링크
+  .tabLink_list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 16px;
+    .tabLink_item {
+      flex: 1;
+      .tabLink_item_button {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include media(pc) {
+          height: 60px;
+          font-size: 22px;
+        }
+        &.active {
+          font-weight: $fontBold;
+          &::before {
+            height: 2px;
+            background-color: $color-black;
+          }
+        }
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background-color: $color-paleGray;
+        }
+      }
+    }
+  }
+  .productDetail_registerInfo_content {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    @include media(pc) {
+      height: 3000px;
+    }
+    &.active {
+      height: auto;
+      &::before {
+        display: none;
+      }
+      .more_w100 {
+        display: none;
+      }
+    }
+    // 그라데이션
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background-image: linear-gradient(to bottom, transparent, #fff);
+      background-size: 100% auto;
+    }
+    & > img {
+      width: 100%;
+    }
+    .more_w100 {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: $color-black;
+    }
+  }
+}

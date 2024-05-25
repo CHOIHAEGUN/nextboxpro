@@ -1,0 +1,44 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+/* productDetail */
+.productDetail_productList_wrap {
+  margin: 40px auto 0;
+
+  .productDetail_productList_title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: $fontBold;
+    margin-bottom: 16px;
+    @include media(pc) {
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+  }
+  .productItem_list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 #{-$layout-side};
+    padding: 0 #{$layout-side};
+    // @include media(pc) {
+    //   margin: 0 -15px 0;
+    // }
+    &_item {
+      margin: 0;
+      width: 152px;
+      flex-shrink: 0;
+      padding: 0;
+      margin-left: 10px;
+      // @include media(pc) {
+      //   padding: 0 15px;
+      //   width: calc(100% / 3);
+      // }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

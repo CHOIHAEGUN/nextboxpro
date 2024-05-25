@@ -1,0 +1,94 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+.header_topCategoryLayer {
+  position: fixed;
+  top: 61px;
+  left: 0;
+  width: 100%;
+  font-size: 18px;
+  line-height: 28px;
+  color: #666;
+  background-color: #f5f5f5;
+  display: none;
+  z-index: 10;
+  @include media(pc) {
+    display: none !important;
+  }
+  &.active {
+    display: block;
+    & ~ .dimmed {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &_depth_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 8px 0 8px 20px;
+    border-bottom: 1px solid $color-paleGray;
+  }
+  &_depth_item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 24px;
+    &::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url('#{$imageUrl}/arrow_right_24@2x.png') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+    &:last-child {
+      &::after {
+        content: normal;
+      }
+    }
+    a,
+    button {
+      &.active {
+        font-weight: $fontBold;
+      }
+    }
+  }
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+  }
+  &_item {
+    width: 50%;
+    flex-shrink: 0;
+    a,
+    button {
+      display: flex;
+      align-items: center;
+      height: 46px;
+      padding: 0 16px 0 20px;
+      &:hover,
+      &.active,
+      &:active {
+        color: $color-orange;
+        font-weight: $fontBold;
+      }
+    }
+  }
+}
+.dimmed {
+  content: '';
+  position: fixed;
+  top: 61px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  @include transition;
+}

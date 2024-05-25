@@ -1,0 +1,64 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+// 하단 버튼
+.fixedBottomArea {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  z-index: 10;
+  border-radius: 0;
+  @include media(pc) {
+    display: none;
+  }
+  .button {
+    position: relative;
+    width: 100%;
+    height: inherit;
+    line-height: 25px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 0;
+    & + .button {
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        content: '';
+        display: block;
+        width: 1px;
+        height: 32px;
+        background-color: #d7d7d7;
+      }
+      &:last-child {
+        &::before {
+          content: normal;
+        }
+      }
+    }
+    &:hover {
+      background-color: #ddd;
+    }
+    &:disabled {
+      cursor: not-allowed !important;
+      opacity: 0.2 !important;
+    }
+    &.black {
+      font-weight: $fontBold;
+      color: #fff;
+      background-color: $color-black;
+    }
+    &.gray {
+      font-weight: $fontRegular;
+      color: #fff;
+      background-color: #ababab;
+    }
+  }
+}

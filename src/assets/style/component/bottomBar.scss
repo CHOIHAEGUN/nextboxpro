@@ -1,0 +1,44 @@
+//common
+@import '../common/mixins.scss';
+@import '../common/variables.scss';
+
+.bottomBar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 64px;
+  background-color: rgba(#333, 0.8);
+  z-index: 5;
+  @include media(pc) {
+    display: block;
+  }
+  .bottomBar_inner {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    padding: 7px 20px;
+    max-width: $maxWidth;
+  }
+  .bottomBar_title {
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  .bottomBar_buttonArea {
+    margin-left: auto;
+    .button {
+      margin-left: 8px;
+    }
+  }
+  .info_tooltip {
+    top: auto;
+    bottom: 30px;
+    min-width: 450px;
+    border-radius: 10px 10px 10px 0;
+    .cnt {
+      color: $color-black;
+    }
+  }
+}
