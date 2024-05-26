@@ -1,0 +1,226 @@
+{
+    "sourceFile": "src/app/event/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 52,
+            "patches": [
+                {
+                    "date": 1716706519242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716706526123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n // 'use client';\n \n+import { useBearStore } from \"@/stores/zustandStore\"\n+\n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n"
+                },
+                {
+                    "date": 1716706535476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n const Event = async () => {\n   const bears = useBearStore((state) => state.bears)\n   return (\n     <>\n-      <h1>Event page</h1>\n+      <h1>Event page </h1>\n     </>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1716706541166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n const Event = async () => {\n   const bears = useBearStore((state) => state.bears)\n   return (\n     <>\n-      <h1>Event page </h1>\n+      <h1>Event page - </h1>\n     </>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1716706552374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,18 @@\n-// 'use client';\n+'use client';\n \n-import { useBearStore } from \"@/stores/zustandStore\"\n+import { useBearStore } from '@/stores/zustandStore';\n \n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = async () => {\n-  const bears = useBearStore((state) => state.bears)\n+  const bears = useBearStore((state) => state.bears);\n   return (\n     <>\n-      <h1>Event page - </h1>\n+      <h1>Event page - {bears}</h1>\n     </>\n-  )\n-}\n+  );\n+};\n \n-export default Event\n+export default Event;\n"
+                },
+                {
+                    "date": 1716706765121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n-const Event = async () => {\n+const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716706870154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n+  \n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716706878005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  \n+  use\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716706884847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n 'use client';\n \n import { useBearStore } from '@/stores/zustandStore';\n+import { useLayoutEffect } from 'react';\n \n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  use\n+  useLayoutEffect\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716706890597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  useLayoutEffect\n+  useLayoutEffect(()=>{})\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716706932346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,13 @@\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n+  \n   const bears = useBearStore((state) => state.bears);\n-  useLayoutEffect(()=>{})\n+  useLayoutEffect(()=>{\n+\n+  },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716706942855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  \n+  const bearsref = useRef\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n \n   },[])\n"
+                },
+                {
+                    "date": 1716706949086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,15 @@\n 'use client';\n \n import { useBearStore } from '@/stores/zustandStore';\n-import { useLayoutEffect } from 'react';\n+import { useLayoutEffect, useRef } from 'react';\n \n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  const bearsref = useRef\n+  const bearsref = useRef(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n \n   },[])\n"
+                },
+                {
+                    "date": 1716706955691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const Event = () => {\n   const bearsref = useRef(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n-\n+    bearsref\n   },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716706961506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const Event = () => {\n   const bearsref = useRef(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n-    bearsref\n+    bearsref = \n   },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716706968877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const Event = () => {\n   const bearsref = useRef(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n-    bearsref = \n+    bearsref = useBearStore((state) => state.bears);\n   },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716706974988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const Event = () => {\n   const bearsref = useRef(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n-    bearsref = useBearStore((state) => state.bears);\n+    bearsref.current = useBearStore((state) => state.bears);\n   },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716706991769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  const bearsref = useRef(null)\n+  const bearsref = useRef<>(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n     bearsref.current = useBearStore((state) => state.bears);\n   },[])\n"
+                },
+                {
+                    "date": 1716707004791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,12 @@\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  const bearsref = useRef<>(null)\n+  const bearsref = useRef<number>(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n-    bearsref.current = useBearStore((state) => state.bears);\n+    bearsref.current: = useBearStore((state) => state.bears);\n   },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716707012014,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const Event = () => {\n   const bearsref = useRef<number>(null)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n-    bearsref.current: = useBearStore((state) => state.bears);\n+    bearsref.current:any = useBearStore((state) => state.bears);\n   },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716707173916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,12 @@\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  const bearsref = useRef<number>(null)\n+  const bearsref = useRef<number>(0)\n   const bears = useBearStore((state) => state.bears);\n   useLayoutEffect(()=>{\n-    bearsref.current:any = useBearStore((state) => state.bears);\n+    bearsref.current = useBearStore((state) => state.bears);\n   },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n"
+                },
+                {
+                    "date": 1716707201989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,16 +7,16 @@\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  const bearsref = useRef<number>(0)\n+  const bearsref = useRef<number>(0);\n   const bears = useBearStore((state) => state.bears);\n-  useLayoutEffect(()=>{\n+  useLayoutEffect(() => {\n     bearsref.current = useBearStore((state) => state.bears);\n-  },[])\n+  }, []);\n   return (\n     <>\n-      <h1>Event page - {bears}</h1>\n+      <h1>Event page - {bearsref}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707207440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     bearsref.current = useBearStore((state) => state.bears);\n   }, []);\n   return (\n     <>\n-      <h1>Event page - {bearsref}</h1>\n+      <h1>Event page - {}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707212573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     bearsref.current = useBearStore((state) => state.bears);\n   }, []);\n   return (\n     <>\n-      <h1>Event page - {}</h1>\n+      <h1>Event page - bearsref</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707218113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     bearsref.current = useBearStore((state) => state.bears);\n   }, []);\n   return (\n     <>\n-      <h1>Event page - bearsref</h1>\n+      <h1>Event page - {}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707245692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     bearsref.current = useBearStore((state) => state.bears);\n   }, []);\n   return (\n     <>\n-      <h1>Event page - {}</h1>\n+      <h1>Event page - {{}}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707251585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     bearsref.current = useBearStore((state) => state.bears);\n   }, []);\n   return (\n     <>\n-      <h1>Event page - {{}}</h1>\n+      <h1>Event page - {}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707260409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     bearsref.current = useBearStore((state) => state.bears);\n   }, []);\n   return (\n     <>\n-      <h1>Event page - {}</h1>\n+      <h1>Event page - {bearsref.current}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707391725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n  */\n const Event = () => {\n   const bearsref = useRef<number>(0);\n   const bears = useBearStore((state) => state.bears);\n-  useLayoutEffect(() => {\n+  useEffect(() => {\n     bearsref.current = useBearStore((state) => state.bears);\n   }, []);\n   return (\n     <>\n"
+                },
+                {
+                    "date": 1716707396782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n 'use client';\n \n import { useBearStore } from '@/stores/zustandStore';\n-import { useLayoutEffect, useRef } from 'react';\n+import { useEffect, useLayoutEffect, useRef } from 'react';\n \n /**\n  * Event 컴포넌트\n  * @returns list\n"
+                },
+                {
+                    "date": 1716707425173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,22 @@\n 'use client';\n \n import { useBearStore } from '@/stores/zustandStore';\n-import { useEffect, useLayoutEffect, useRef } from 'react';\n+import { useLayoutEffect, useRef } from 'react';\n \n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  const bearsref = useRef<number>(0);\n+  const bearsref = useRef<number>(null)\n   const bears = useBearStore((state) => state.bears);\n-  useEffect(() => {\n+  useLayoutEffect(()=>{\n     bearsref.current = useBearStore((state) => state.bears);\n-  }, []);\n+  },[])\n   return (\n     <>\n-      <h1>Event page - {bearsref.current}</h1>\n+      <h1>Event page - {bears}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707436920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,14 @@\n 'use client';\n \n import { useBearStore } from '@/stores/zustandStore';\n-import { useLayoutEffect, useRef } from 'react';\n \n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n-  const bearsref = useRef<number>(null)\n   const bears = useBearStore((state) => state.bears);\n-  useLayoutEffect(()=>{\n-    bearsref.current = useBearStore((state) => state.bears);\n-  },[])\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707458174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n+  const []\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707465054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const []\n+  const [showNum,set]\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707472094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum,set]\n+  const [showNum,setShowNum]\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707477842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum,setShowNum]\n+  const [showNum,setShowNum] = useState\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707485044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n 'use client';\n \n import { useBearStore } from '@/stores/zustandStore';\n+import { useState } from 'react';\n \n /**\n  * Event 컴포넌트\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum,setShowNum] = useState\n+  const [showNum,setShowNum] = useState(0)\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707493058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum,setShowNum] = useState(0)\n+  const [showNum,setShowNum] = useState(useBearStore((state) => state.bears);)\n   return (\n     <>\n       <h1>Event page - {bears}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707501746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,12 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum,setShowNum] = useState(useBearStore((state) => state.bears);)\n+  const [showNum,setShowNum] = useState(useBearStore((state) => state.bears))\n   return (\n     <>\n-      <h1>Event page - {bears}</h1>\n+      <h1>Event page - {showNum}</h1>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1716707532970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum,setShowNum] = useState(useBearStore((state) => state.bears))\n+  const [showNum, setShowNum] = useState();\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707538137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState();\n+  const [showNum, setShowNum] = useState((pre)=>);\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707543621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState((pre)=>);\n+  const [showNum, setShowNum] = useState((pre)=>{\n+    return \n+  });\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707583076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n   const [showNum, setShowNum] = useState((pre)=>{\n-    return \n+    return useBearStore((state) => state.bears)\n   });\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n"
+                },
+                {
+                    "date": 1716707593814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState((pre)=>{\n+  const [showNum, setShowNum] = useState((pre:number)=>{\n     return useBearStore((state) => state.bears)\n   });\n   return (\n     <>\n"
+                },
+                {
+                    "date": 1716707603592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState((pre:number)=>{\n-    return useBearStore((state) => state.bears)\n+  const [showNum, setShowNum] = useState((pre)=>{\n+    \n   });\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n"
+                },
+                {
+                    "date": 1716707612408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n   const [showNum, setShowNum] = useState((pre)=>{\n-    \n+    useBearStore((state) => state.bears)\n   });\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n"
+                },
+                {
+                    "date": 1716707620063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,9 @@\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n   const [showNum, setShowNum] = useState((pre)=>{\n-    useBearStore((state) => state.bears)\n-  });\n+    useBearStore((state) => state.bears));\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707628337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState((pre)=>{\n-    useBearStore((state) => state.bears));\n+  const [showNum, setShowNum] = useState((pre)=>\n+   return  useBearStore((state) => state.bears));\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707633717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n   const [showNum, setShowNum] = useState((pre)=>\n-   return  useBearStore((state) => state.bears));\n+   (return  useBearStore((state) => state.bears));)\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707650915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState((pre)=>\n-   (return  useBearStore((state) => state.bears));)\n+  const [showNum, setShowNum] = useState(useBearStore((state) => state.bears));\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707668034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState(useBearStore((state) => state.bears));\n+  const [showNum, setShowNum] = useState();\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707676075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState();\n+  const [showNum, setShowNum] = useState(bears??0);\n   return (\n     <>\n       <h1>Event page - {showNum}</h1>\n     </>\n"
+                },
+                {
+                    "date": 1716707784748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,12 @@\n  * @returns list\n  */\n const Event = () => {\n   const bears = useBearStore((state) => state.bears);\n-  const [showNum, setShowNum] = useState(bears??0);\n+  const [showNum, setShowNum] = useState(bears ?? 0);\n   return (\n     <>\n-      <h1>Event page - {showNum}</h1>\n+      <h1>Event page - {bears}</h1>\n     </>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1716706519242,
+            "name": "Commit-0",
+            "content": "// 'use client';\n\n/**\n * Event 컴포넌트\n * @returns list\n */\nconst Event = async () => {\n  const bears = useBearStore((state) => state.bears)\n  return (\n    <>\n      <h1>Event page</h1>\n    </>\n  )\n}\n\nexport default Event\n"
+        }
+    ]
+}
