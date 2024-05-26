@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
-import path from 'path'
-import { fileURLToPath } from 'url'
-const __filename = fileURLToPath(import.meta.url)
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
 
-const __dirname = path.dirname(__filename)
+const __dirname = path.dirname(__filename);
 // const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   // output: 'export',
-  distDir: 'build-dev',
+  // distDir: 'build-dev',
   // assetPrefix: './',
   swcMinify: true,
   reactStrictMode: true,
@@ -19,33 +19,33 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'commerce.ibkbox.net',
-        port: ''
+        port: '',
         // pathname: '/account123/**',
       },
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
-        port: ''
+        port: '',
         // pathname: '/account123/**',
       },
       {
         protocol: 'https',
         hostname: 'www.ibkbox.net',
-        port: ''
+        port: '',
         // pathname: '/account123/**',
-      }
-    ]
+      },
+    ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')]
+    includePaths: [path.join(__dirname, 'styles')],
   },
   experimental: {
     serverActions: {
-      allowedOrigins: ['localhost', 'devinvest.ibkbox.net', 'invest.ibkbox.net', 'devcommerce.ibkbox.net']
-    }
-  }
+      allowedOrigins: ['localhost', 'devinvest.ibkbox.net', 'invest.ibkbox.net', 'devcommerce.ibkbox.net'],
+    },
+  },
   // crossOrigin: 'anonymous'
   // skipMiddlewareUrlNormalize: true
-}
+};
 
-export default nextConfig
+export default nextConfig;

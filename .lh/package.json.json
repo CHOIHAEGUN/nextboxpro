@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1716626267176,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716704188311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n {\n-  \"name\": \"next\",\n+  \"name\": \"nextboxpro\",\n   \"version\": \"0.1.0\",\n   \"private\": true,\n   \"homepage\": \".\",\n   \"scripts\": {\n@@ -64,9 +64,8 @@\n     \"react-router-dom\": \"^6.23.0\",\n     \"react-router-hash-link\": \"^2.4.3\",\n     \"react-scripts\": \"^5.0.1\",\n     \"react-star-ratings\": \"^2.3.0\",\n-    \"react-swipeable-views\": \"^0.14.0\",\n     \"react-uuid\": \"^2.0.0\",\n     \"react-youtube\": \"^10.1.0\",\n     \"regenerator-runtime\": \"^0.14.1\",\n     \"sass\": \"^1.76.0\",\n"
                 }
             ],
             "date": 1716626267176,
